@@ -22,7 +22,7 @@ public class EmpleadoMain {
 		while (seleccionUsuario != 0) {
 
 			System.out.println(
-					"1.Añadir empleado. \n2.Listar empleados. \n3. Modificar empleado.\nEliminar empleado.\0.Salir ");
+					"1. Añadir empleado. \n2. Listar empleados. \n3. Modificar empleado.\n4. Eliminar empleado.\n0. Salir ");
 
 			seleccionUsuario = dogma.nextInt();
 

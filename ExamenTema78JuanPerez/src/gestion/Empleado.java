@@ -6,7 +6,7 @@ public abstract class Empleado implements Comparable<Object> {
 
 	protected String apellidos = "";
 
-	protected Sexo sexo = Sexo.valueOf("H");
+	protected Sexo sexo = Sexo.H;
 
 	enum Sexo {
 		H, M
@@ -94,15 +94,15 @@ public abstract class Empleado implements Comparable<Object> {
 		if (!this.apellidos.equalsIgnoreCase(emp.apellidos)) {
 
 			if (this.apellidos.compareTo(emp.apellidos) > 0) {
-				resultado = -1;
-			} else if (this.apellidos.compareTo(emp.apellidos) < 0) {
 				resultado = 1;
+			} else if (this.apellidos.compareTo(emp.apellidos) < 0) {
+				resultado = -1;
 			}
 
 		} else if (this.nombre.compareTo(emp.nombre) > 0) {
-			resultado = -1;
-		} else if (this.nombre.compareTo(emp.nombre) < 0) {
 			resultado = 1;
+		} else if (this.nombre.compareTo(emp.nombre) < 0) {
+			resultado = -1;
 		}
 
 		return resultado;

@@ -5,17 +5,19 @@ import java.util.Scanner;
 
 public class ListadoEmpleados {
 
-	static Empleado[] listaEmpleados = new Empleado[10];
+	public static Empleado[] listaEmpleados = { null, null, null, null, null, null, null, null, null, null };
 
 	public static int posicionLibre() {
 		int posicionLibre = 0;
 		int posicion = 0;
 
 		while (posicion < listaEmpleados.length) {
-			if (listaEmpleados[posicion] == null) {
+			if (listaEmpleados[posicion] != null) {
 				posicionLibre = posicion;
+				System.out.println(posicion);
 				break;
 			}
+			posicion++;
 		}
 		return posicionLibre;
 	}
@@ -25,13 +27,17 @@ public class ListadoEmpleados {
 		int posicion = 0;
 
 		while (posicion < listaEmpleados.length) {
-			if (listaEmpleados[posicion].equals(e)) {
-				posicionEmpleado = posicion;
-				break;
 
-			} else {
-				posicionEmpleado = -1;
+			if (listaEmpleados[posicion] != null) {
+
+				if (listaEmpleados[posicion].equals(e)) {
+					posicionEmpleado = posicion;
+					break;
+				} else {
+					posicionEmpleado = -1;
+				}
 			}
+			posicion++;
 		}
 		return posicionEmpleado;
 	}
@@ -41,7 +47,7 @@ public class ListadoEmpleados {
 		Arrays.sort(listaEmpleados);
 
 		for (Empleado emp : listaEmpleados) {
-			System.out.println(emp);
+			System.out.println(emp.toString());
 			System.out.println();
 		}
 	}
@@ -213,8 +219,7 @@ public class ListadoEmpleados {
 			System.out.println("Ese empleado no se encuentra en la lista.");
 
 		} else {
-			listaEmpleados[buscaEmpleado(emp)].setNombre(null);
-			listaEmpleados[buscaEmpleado(emp)].setApellidos(null);
+			listaEmpleados[buscaEmpleado(emp)]=null;
 		}
 
 	}
